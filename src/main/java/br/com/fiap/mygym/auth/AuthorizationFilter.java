@@ -31,7 +31,7 @@ public class AuthorizationFilter extends OncePerRequestFilter {
             return;
         }
 
-        if (!header.startsWith("Bearer ")) {
+        if(!header.startsWith("Bearer ")) {
             response.setStatus(401);
             response.addHeader("Content-Type", "application/json");
             response.getWriter().write("""
@@ -47,9 +47,10 @@ public class AuthorizationFilter extends OncePerRequestFilter {
             User user = tokenService.getUserFromToken(token);
 
             var auth = new UsernamePasswordAuthenticationToken(
-                    user.getEmail(),
-                    user.getPassword(),
-                    List.of(new SimpleGrantedAuthority("USER"))
+                user.getEmail(),
+                user.getPassword(),
+                List.of(new SimpleGrantedAuthority("USER"))
+
             );
             SecurityContextHolder.getContext().setAuthentication(auth);
             filterChain.doFilter(request, response);

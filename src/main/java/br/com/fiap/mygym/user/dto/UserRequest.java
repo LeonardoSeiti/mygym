@@ -7,8 +7,7 @@ public record UserRequest(
     String name,
     String gym,
     String email,
-    String password,
-    String split
+    String password
 ) {
     public User toModel(){
         return User.builder()
@@ -16,7 +15,6 @@ public record UserRequest(
             .gym(gym)
             .email(email)
             .password(password)
-            .split(split)
             .createdAt(LocalDateTime.now())
             .updatedAt(LocalDateTime.now())
             .build();

@@ -25,8 +25,6 @@ public class User {
     String gym;
     String email;
     String password;
-    //ex push, pull, legs // A,B,C // A,B,C,D // A,B,C,D,E // FullBody // UpperLower // BroSplit // UpperLowerPushPull // PushPullLegs
-    String split;
     LocalDateTime createdAt;
     LocalDateTime updatedAt;
 }

@@ -9,7 +9,6 @@ public record UserResponse(
     String name,
     String gym,
     String email,
-    String split,
     LocalDateTime createdAt
 ) {
     public static UserResponse from(User user){
@@ -18,7 +17,6 @@ public record UserResponse(
         user.getName(),
         user.getGym(), 
         user.getEmail(),
-        user.getSplit(),
         user.getCreatedAt());
     }
 }

@@ -5,10 +5,9 @@ import br.com.fiap.mygym.user.User;
 public record UserProfileResponse(
     String name,
     String gym,
-    String email,
-    String split
+    String email
 ) {
     public UserProfileResponse(User user){
-        this(user.getName(), user.getGym(), user.getEmail(), user.getSplit());
+        this(user.getName(), user.getGym(), user.getEmail());
     }
 }

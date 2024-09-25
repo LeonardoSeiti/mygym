@@ -1,17 +1,21 @@
 package br.com.fiap.mygym.split.dto;
 
 import br.com.fiap.mygym.split.Split;
+import br.com.fiap.mygym.user.User;
+
+import java.time.LocalDateTime;
 
 public record SplitRequest(
-    String name,
-    String type,
-    String description
-) {
-    public Split toModel() {
-        return Split.builder()
-            .name(name)
-            .type(type)
-            .description(description)
-            .build();
+            String type,
+            String description ){
+    public Split toModel(User user){
+        return Split
+                .builder()
+                .type(type)
+                .description(description)
+                .createdAt(LocalDateTime.now())
+                .user(user)
+                .build();
+
     }
 }

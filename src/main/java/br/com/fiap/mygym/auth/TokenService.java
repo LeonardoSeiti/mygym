@@ -26,7 +26,6 @@ public class TokenService {
         var expiresAt = LocalDateTime.now().plusHours(1).toInstant(ZoneOffset.ofHours(-3));
         var token = JWT.create()
                 .withSubject(credentials.email())
-                .withClaim("role", "ADMIN")
                 .withExpiresAt(expiresAt)
                 .sign(algorithm);
         return new Token(token, credentials.email());
