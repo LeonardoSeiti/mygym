@@ -3,4 +3,4 @@ ADD COLUMN user_id NUMBER;
 
 ALTER TABLE split
 ADD CONSTRAINT fk_user
-FOREIGN KEY (user_id) REFERENCES users(id);
+FOREIGN KEY (user_id) REFERENCES cliente(id);

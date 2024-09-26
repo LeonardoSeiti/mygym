@@ -29,6 +29,7 @@ public class SplitController {
         var user = userRepository.findByEmail(email).orElseThrow(
                 () -> new UsernameNotFoundException("User not found")
         );
+        System.out.println(user);
         Split split = splitRequest.toModel(user);
         return splitService.create(split);
     }

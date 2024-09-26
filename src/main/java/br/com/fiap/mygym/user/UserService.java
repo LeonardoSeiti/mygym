@@ -14,7 +14,7 @@ public class UserService {
 
     @Autowired
     UserRepository repository;
-    
+
     @Autowired
     PasswordEncoder passwordEncoder;
 
@@ -22,15 +22,15 @@ public class UserService {
         return repository.findByNameContainingIgnoreCase(name);
     }
 
-    public User create(User user){
+    public User create(User user) {
         user.setPassword(
-            passwordEncoder.encode(user.getPassword())
-        );
+                passwordEncoder.encode(user.getPassword()));
         return repository.save(user);
     }
-    public UserProfileResponse getUserProfile(String email){
+
+    public UserProfileResponse getUserProfile(String email) {
         return repository.findByEmail(email)
-        .map(UserProfileResponse::new)
-        .orElseThrow(() -> new UsernameNotFoundException("User not found"));	
+                .map(UserProfileResponse::new)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
     }
 }
